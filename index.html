@@ -1,11 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>coba git remote</title>
+    <title>APOK PLAYLIST</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <h1>HALLO SAYA TEUNGKU</h1>
+    <div class="container">
+        <div class="card" id="playlistCard">
+            <h2>APOK🎧 PLAYLIST</h2>
+            <audio id="audioPlayer">
+                <source id="audioSource" src="DJ/songs/song1.mp3" type="audio/mpeg">
+                Browser Anda tidak mendukung pemutar audio.
+            </audio>
+            <div class="kontrol">
+                <button id="toggleBtn">Play ▶️</button>
+                <button id="prevBtn">Prev ⏮️</button>
+                <button id="nextBtn">Next ⏭️</button>
+            </div>
+            <p id="currentSong">MENYALA ABANGKUH🔥🕺</p>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
 </body>
+
 </html>
