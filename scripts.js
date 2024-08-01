@@ -53,6 +53,7 @@ const initializeAudioPlayer = (audioPlayerId, audioSourceId, toggleBtnId, prevBt
 initializeAudioPlayer('audioPlayer', 'audioSource', 'toggleBtn', 'prevBtn', 'nextBtn', 'currentSong', [
     // DJ Songs
     { src: 'songs/DJ🎧/-TEREK BALE- ( Music Vidio).mp3', title: 'TAREK BALE' },
+    { src: 'songs/DJ🎧/DYCAL - DOMIKADO .ft MARIO & PRETTY RICO.mp3', title: 'DOMIKADO' },
     { src: 'songs/DJ🎧/DOLA - ANGGA DERMAWAN  (Official Music Video).mp3', title: 'DOLA - ANGGA DERMAWAN' },
     { src: 'songs/DJ🎧/Dash Uciha Ft Daman Nula - Nana Nana Preminim ( Preman Feminim ).mp3', title: 'Nana Nana Preminim' },
     { src: 'songs/DJ🎧/Dj kasih tinggal bang dika by arif sopan.mp3', title: 'Dj kasih tinggal bang dika' },
