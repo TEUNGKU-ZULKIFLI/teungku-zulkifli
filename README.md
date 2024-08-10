@@ -5,6 +5,8 @@
 
 <img align="right" alt="ME" width="250" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjShIP5_eWOTmeBddCP7Jlwzc2unFnsxKK03dN2f7C_jNP0YX6Z7FoQJprBsCOFZ2O5gbiD3FggZJJtROlPf6C_WXKfe398sszuhKFrZqv7bluSbEIzCtlU-R3gmBUQcmWgt5W_TFEp3FI68L9SfAUF2oi9dAEo19Fg0Jq2vL8H9EwVEc7W9pKeILpSxnI/s240/TEUNGKU%20GIF%20GITHUB%20FIXS.gif">
 
+<img align="center" alt="ME" width="250" src="img/teungku 8bit retro.gif">
+
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=teungku-zulkifli&label=Profile%20views&color=0e75b6&style=flat" alt="teungku-zulkifli" /> </p>
 
 - 🌱 I’m currently learning **HTML,CSS,And other.**
