@@ -1,0 +1,52 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f958ff8f;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.card {
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 127);
+    margin-bottom: 20px;
+    background-color: white;
+}
+
+.kontrol {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.kontrol button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #c800ff;
+    color: white;
+    transition: 0.3s;
+}
+
+.kontrol button:hover {
+    background-color: #aa00b3;
+    scale: 1.1;
+    transition: 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 127);
+}
+
+.kontrol button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
