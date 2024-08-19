@@ -1,63 +1,61 @@
-function initializeAudioPlayer(playerId, sourceId, toggleBtnId, prevBtnId, nextBtnId, currentSongId, playlist) {
-    const audioPlayer = document.getElementById(playerId);
-    const audioSource = document.getElementById(sourceId);
-    const playPauseBtn = document.getElementById(toggleBtnId);
+function initializeAudioPlayer(audioPlayerId, audioSourceId, playPauseBtnId, prevBtnId, nextBtnId, currentSongId, playlist) {
+    const audioPlayer = document.getElementById(audioPlayerId);
+    const audioSource = document.getElementById(audioSourceId);
+    const playPauseBtn = document.getElementById(playPauseBtnId);
     const prevBtn = document.getElementById(prevBtnId);
     const nextBtn = document.getElementById(nextBtnId);
-    const currentSongDisplay = document.getElementById(currentSongId);
+    const currentSongInfo = document.getElementById(currentSongId);
 
-    let isPlaying = false;
-    let currentSongIndex = 0;
+    let currentIndex = 0;
 
-    const loadSong = (index) => {
+    function loadSong(index) {
         audioSource.src = playlist[index].src;
-        currentSongDisplay.textContent = playlist[index].title;
+        currentSongInfo.textContent = playlist[index].title;
         audioPlayer.load();
-        playAudio(); // Auto-play after loading the song
-    };
-
-    const playAudio = () => {
-        audioPlayer.play().catch(error => {
-            console.error('Error playing audio:', error);
-        });
-        isPlaying = true;
-        playPauseBtn.textContent = 'Pause';
-    };
-
-    const pauseAudio = () => {
-        audioPlayer.pause();
-        isPlaying = false;
         playPauseBtn.textContent = 'Play';
-    };
+    }
 
-    playPauseBtn.addEventListener('click', () => {
-        if (isPlaying) {
-            pauseAudio();
+    function playPauseAudio() {
+        if (audioPlayer.paused) {
+            audioPlayer.play();
+            playPauseBtn.textContent = 'Pause';
         } else {
-            playAudio();
+            audioPlayer.pause();
+            playPauseBtn.textContent = 'Play';
         }
-    });
+    }
 
-    prevBtn.addEventListener('click', () => {
-        currentSongIndex = (currentSongIndex > 0) ? currentSongIndex - 1 : playlist.length - 1;
-        loadSong(currentSongIndex);
-    });
+    function playNext() {
+        currentIndex = (currentIndex + 1) % playlist.length;
+        loadSong(currentIndex);
+        playPauseAudio();
+    }
 
-    nextBtn.addEventListener('click', () => {
-        currentSongIndex = (currentSongIndex < playlist.length - 1) ? currentSongIndex + 1 : 0;
-        loadSong(currentSongIndex);
-    });
+    function playPrev() {
+        currentIndex = (currentIndex - 1 + playlist.length) % playlist.length;
+        loadSong(currentIndex);
+        playPauseAudio();
+    }
 
-    // Initial load
-    loadSong(currentSongIndex);
+    playPauseBtn.addEventListener('click', playPauseAudio);
+    nextBtn.addEventListener('click', playNext);
+    prevBtn.addEventListener('click', playPrev);
+
+    // Load the first song by default
+    loadSong(currentIndex);
 }
 
-// Example usage
 fetch('playlist.json')
     .then(response => response.json())
     .then(data => {
-        // Initialize with DJ Songs as an example
-        initializeAudioPlayer('audioPlayer', 'audioSource', 'playPauseBtn', 'prevBtn', 'nextBtn', 'currentSong', data.DJ_Songs);
+        const playlistSelector = document.getElementById('playlistSelector');
+        playlistSelector.addEventListener('change', function() {
+            const selectedPlaylist = this.value;
+            initializeAudioPlayer('audioPlayer', 'audioSource', 'playPauseBtn', 'prevBtn', 'nextBtn', 'currentSong', data[selectedPlaylist]);
+        });
+
+        // Initialize with the default selected playlist
+        initializeAudioPlayer('audioPlayer', 'audioSource', 'playPauseBtn', 'prevBtn', 'nextBtn', 'currentSong', data[playlistSelector.value]);
     })
     .catch(error => {
         console.error('Error loading playlist:', error);

@@ -18,31 +18,31 @@
 
         .card {
             width: 300px;
-            height: 300px;
+            height: 400px;
             border: 1px solid #ffffff;
             border-radius: 10px;
             overflow: hidden;
-            background-color: #ffffff4f;
+            background-color: rgba(255, 255, 255, 0.3);
             box-shadow: 0 4px 8px rgb(0, 0, 0);
             text-align: center;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
-            padding: 10px;
+            padding: 15px;
+            backdrop-filter: blur(10px);
         }
 
         .card img {
             width: 180px;
             height: auto;
-            border-radius: 5px;
+            border-radius: 10px;
             margin-top: 20px;
-            transition: 1s;
+            transition: transform 1s ease;
         }
 
         .card img:hover {
-            scale: 1.1;
-            transition: 1s;
+            transform: scale(1.1);
         }
 
         .controls {
@@ -50,6 +50,7 @@
             justify-content: space-between;
             padding: 5px 0;
             width: 100%;
+            margin-top: 10px;
         }
 
         .controls button {
@@ -60,6 +61,7 @@
             border-radius: 5px;
             cursor: pointer;
             font-size: 14px;
+            transition: transform 0.2s ease;
         }
 
         .controls button:disabled {
@@ -69,19 +71,34 @@
 
         .controls button:hover {
             background-color: #0056b3;
-            scale: 1.1;
+            transform: scale(1.05);
         }
 
         .song-info {
             margin-top: 10px;
             font-size: 14px;
             text-align: center;
+            color: #fff;
         }
+
+        .playlist-selector {
+            margin-bottom: 10px;
+            font-size: 14px;
+            padding: 5px;
+            border-radius: 5vh;
+            background-color: #0000004c;
+        }
+        
     </style>
 </head>
 <body>
     <div class="card">
-        <img src="img/teungku 8bit retro.gif">
+        <select id="playlistSelector" class="playlist-selector">
+            <option value="DJ_Songs">DJ Songs</option>
+            <option value="INDO_REMIX_Songs">INDO REMIX Songs</option>
+            <option value="ENGLISH_SONGS">ENGLISH SONGS</option>
+        </select>
+        <img src="img/teungku 8bit retro.gif" alt="User Image">
         <audio id="audioPlayer">
             <source id="audioSource" src="" type="audio/mpeg">
             Browser Anda tidak mendukung pemutar audio.
