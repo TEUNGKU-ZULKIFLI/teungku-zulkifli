@@ -17,4 +17,4 @@
 
 - 👨[<kbd>MORE INFO</kbd>](https://teungku-zulkifli.github.io) 👨‍💻.
 
-- 🎧[<kbd>MORE INFO</kbd>](https://teungku-zulkifli.github.io/teungku-zulkifli) 🕺.
+- 🎧[<kbd>PLAYLIST MY MUSIC</kbd>](https://teungku-zulkifli.github.io/teungku-zulkifli) 🕺.
