@@ -7,34 +7,51 @@ function initializeAudioPlayer(audioPlayerId, audioSourceId, playPauseBtnId, pre
     const currentSongInfo = document.getElementById(currentSongId);
 
     let currentIndex = 0;
+    let isPlaying = false;
 
     function loadSong(index) {
         audioSource.src = playlist[index].src;
         currentSongInfo.textContent = playlist[index].title;
         audioPlayer.load();
+
+        // Reset play button
         playPauseBtn.textContent = 'Play';
+        isPlaying = false;
     }
 
     function playPauseAudio() {
-        if (audioPlayer.paused) {
-            audioPlayer.play();
-            playPauseBtn.textContent = 'Pause';
-        } else {
+        if (isPlaying) {
             audioPlayer.pause();
             playPauseBtn.textContent = 'Play';
+            isPlaying = false;
+        } else {
+            audioPlayer.play().then(() => {
+                playPauseBtn.textContent = 'Pause';
+                isPlaying = true;
+            }).catch(error => {
+                console.error('Error playing audio:', error);
+            });
         }
     }
 
     function playNext() {
         currentIndex = (currentIndex + 1) % playlist.length;
         loadSong(currentIndex);
-        playPauseAudio();
+
+        // Tunggu sampai audio selesai load sebelum memainkannya
+        audioPlayer.onloadeddata = () => {
+            playPauseAudio();
+        };
     }
 
     function playPrev() {
         currentIndex = (currentIndex - 1 + playlist.length) % playlist.length;
         loadSong(currentIndex);
-        playPauseAudio();
+
+        // Tunggu sampai audio selesai load sebelum memainkannya
+        audioPlayer.onloadeddata = () => {
+            playPauseAudio();
+        };
     }
 
     playPauseBtn.addEventListener('click', playPauseAudio);
